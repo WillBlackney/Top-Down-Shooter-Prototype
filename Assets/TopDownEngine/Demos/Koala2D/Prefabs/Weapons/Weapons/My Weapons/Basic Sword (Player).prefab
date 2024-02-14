@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 114594623923584052}
   - component: {fileID: 27334450931780768}
   m_Layer: 0
-  m_Name: Basic Sword
+  m_Name: Basic Sword (Player)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -229,8 +229,8 @@ MonoBehaviour:
   TargetLayerMask:
     serializedVersion: 2
     m_Bits: 8192
-  MinDamageCaused: 20
-  MaxDamageCaused: 20
+  MinDamageCaused: 1
+  MaxDamageCaused: 1
   Knockback: 1
   KnockbackForce: {x: 100, y: 100, z: 0}
   KnockbackDirection: 0
