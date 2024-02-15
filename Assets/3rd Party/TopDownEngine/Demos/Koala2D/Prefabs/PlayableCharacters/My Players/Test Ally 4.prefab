@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 7535117632070073097}
   - component: {fileID: 4210529307389244122}
   m_Layer: 23
-  m_Name: Test Ally 4 (Astar Pathing)
+  m_Name: Test Ally 4
   m_TagString: Ally
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -685,7 +685,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Label: 
   ComparisonMode: 3
-  Distance: 3
+  Distance: 4
 --- !u!114 &5324943150353202955
 MonoBehaviour:
   m_ObjectHideFlags: 0

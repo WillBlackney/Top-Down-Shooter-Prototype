@@ -5000,13 +5000,13 @@ MonoBehaviour:
     m_Bits: 8960
   Owner: {fileID: 0}
   TriggerFilter: 195
-  MinDamageCaused: 25
-  MaxDamageCaused: 25
+  MinDamageCaused: 20
+  MaxDamageCaused: 20
   TypedDamages: []
   DamageDirectionMode: 1
   DamageCausedKnockbackType: 1
   DamageCausedKnockbackDirection: 3
-  DamageCausedKnockbackForce: {x: 400, y: 0, z: 0}
+  DamageCausedKnockbackForce: {x: 200, y: 0, z: 0}
   InvincibilityDuration: 0.1
   RepeatDamageOverTime: 0
   AmountOfRepeats: 3
