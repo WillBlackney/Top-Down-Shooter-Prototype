@@ -5065,7 +5065,6 @@ GameObject:
   - component: {fileID: 4943838447161096}
   - component: {fileID: 114317679573123918}
   - component: {fileID: 114137986743622244}
-  - component: {fileID: 3630010037372140334}
   - component: {fileID: 114345180357598506}
   - component: {fileID: 114251315345146356}
   m_Layer: 0
@@ -5110,7 +5109,7 @@ MonoBehaviour:
   TriggerMode: 1
   DelayBeforeUse: 0
   DelayBeforeUseReleaseInterruption: 1
-  TimeBetweenUses: 1
+  TimeBetweenUses: 0.5
   TimeBetweenUsesReleaseInterruption: 1
   UseBurstMode: 0
   BurstLength: 3
@@ -5193,48 +5192,10 @@ MonoBehaviour:
   MutualizeWaitingPools: 1
   NestWaitingPool: 1
   NestUnderThis: 0
-  GameObjectToPool: {fileID: 1486318089921324, guid: 5dc6333a08c896a45a18c1ac8a610943,
+  GameObjectToPool: {fileID: 1486318089921324, guid: e99e473bc0958f64ea3a5ed6267850e9,
     type: 3}
-  PoolSize: 20
+  PoolSize: 10
   PoolCanExpand: 1
---- !u!114 &3630010037372140334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1490220044263310}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 787adbe3232ded84a9544869399298f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TargetsMask:
-    serializedVersion: 2
-    m_Bits: 8192
-  ObstacleMask:
-    serializedVersion: 2
-    m_Bits: 256
-  ScanRadius: 30
-  LineOfFireBoxcastSize: {x: 0.1, y: 0.1}
-  DurationBetweenScans: 1
-  DetectionOriginOffset: {x: 0, y: 0, z: 0}
-  OnlyAcquireTargetsIfOwnerIsIdle: 0
-  RotationMode: 0
-  ApplyAutoAimAsLastDirection: 1
-  MoveCameraTarget: 0
-  CameraTargetDistance: 0.5
-  CameraTargetMaxDistance: 10
-  CameraTargetSpeed: 5
-  MoveCameraToCharacterIfNoTarget: 0
-  AimMarkerPrefab: {fileID: 0}
-  DestroyAimMarkerOnWeaponDestroy: 1
-  FirstTargetFoundFeedback: {fileID: 0}
-  NewTargetFoundFeedback: {fileID: 0}
-  NoMoreTargetsFeedback: {fileID: 0}
-  Target: {fileID: 0}
-  DrawDebugRadius: 1
-  OverlapMaximum: 10
 --- !u!114 &114345180357598506
 MonoBehaviour:
   m_ObjectHideFlags: 0
