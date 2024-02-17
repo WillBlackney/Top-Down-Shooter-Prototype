@@ -214,7 +214,7 @@ MonoBehaviour:
   WeaponReloadNeededMMFeedback: {fileID: 0}
   WeaponReloadImpossibleMMFeedback: {fileID: 0}
   InitializeOnStart: 0
-  Interruptable: 0
+  Interruptable: 1
   Flipped: 0
   MeleeDamageAreaMode: 0
   DamageAreaShape: 0

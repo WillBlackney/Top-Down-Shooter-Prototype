@@ -37,6 +37,7 @@ namespace MoreMountains.TopDownEngine
 		/// <param name="collider"></param>
 		protected virtual void Colliding(GameObject collider)
 		{
+			Debug.Log("StunZone.Colliding()");
 			if (!MMLayers.LayerInLayerMask(collider.layer, TargetLayerMask))
 			{
 
