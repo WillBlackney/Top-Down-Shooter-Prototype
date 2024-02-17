@@ -7,7 +7,7 @@ namespace GameEngine
 {
     public class EnemySpawner : MonoBehaviour
     {
-        [SerializeField] private GameObject enemyPrefab;
+        [SerializeField] private GameObject[] enemyPrefabs;
         [SerializeField] private float spawnSpeed = 2f;
         [SerializeField] private List<Transform> spawnPositions;
 
@@ -29,7 +29,7 @@ namespace GameEngine
         private void SpawnEnemy()
         {
             Vector3 spawnPoint = spawnPositions.GetRandomElement().position;
-            GameObject newEnemy = Instantiate(enemyPrefab, spawnPoint, Quaternion.identity);
+            GameObject newEnemy = Instantiate(enemyPrefabs.GetRandomElement(), spawnPoint, Quaternion.identity);
         }
     }
 }

@@ -14985,7 +14985,7 @@ MonoBehaviour:
   ProjectilesPerShot: 1
   SpawnTransforms: []
   SpawnTransformsMode: 1
-  Spread: {x: 0, y: 0, z: 10}
+  Spread: {x: 0, y: 0, z: 15}
   RotateWeaponOnSpread: 1
   RandomSpread: 1
   SpawnPosition: {x: 0.9, y: -0.87, z: 0}
