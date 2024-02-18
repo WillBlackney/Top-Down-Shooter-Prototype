@@ -16115,8 +16115,8 @@ MonoBehaviour:
     m_Bits: 8192
   Owner: {fileID: 0}
   TriggerFilter: 195
-  MinDamageCaused: 10
-  MaxDamageCaused: 10
+  MinDamageCaused: 5
+  MaxDamageCaused: 5
   TypedDamages: []
   DamageDirectionMode: 0
   DamageCausedKnockbackType: 1
@@ -16244,8 +16244,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   StunMode: 1
-  StunDuration: 2
-  DisableZoneOnStun: 0
+  StunDuration: 1
+  DisableZoneOnStun: 1
 --- !u!1 &2769150743623416789
 GameObject:
   m_ObjectHideFlags: 0

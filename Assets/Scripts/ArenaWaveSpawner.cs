@@ -14,16 +14,22 @@ namespace GameEngine
         [SerializeField] private Transform[] spawnPositions;
         [SerializeField] private List<WaveData> waves;
         [SerializeField] private TextMeshProUGUI waveCountText;
+        [SerializeField] private WaveData loopedWave;
 
         private int currentWaveNumber = 0;
         private float countdownToNextWave = 0;
         private void Update()
         {
             countdownToNextWave -= Time.deltaTime;
-            if(countdownToNextWave < 0 )
+            if(countdownToNextWave < 0)
             {
                 currentWaveNumber += 1;
-                WaveData nextWave = waves[0];
+                WaveData nextWave = loopedWave;
+                if (waves.Count > 0 )
+                {
+                    nextWave = waves[0];
+                }
+                
                 countdownToNextWave = nextWave.waveDuration;
                 StartCoroutine(SpawnWave(nextWave));
             }

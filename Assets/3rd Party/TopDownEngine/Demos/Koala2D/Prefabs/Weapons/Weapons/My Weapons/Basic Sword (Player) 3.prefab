@@ -232,7 +232,7 @@ MonoBehaviour:
   MinDamageCaused: 30
   MaxDamageCaused: 30
   Knockback: 1
-  KnockbackForce: {x: 400, y: 400, z: 0}
+  KnockbackForce: {x: 300, y: 300, z: 0}
   KnockbackDirection: 0
   InvincibilityDuration: 0.1
   CanDamageOwner: 0

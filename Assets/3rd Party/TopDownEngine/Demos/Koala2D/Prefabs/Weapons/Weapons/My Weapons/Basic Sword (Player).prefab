@@ -747,8 +747,8 @@ MonoBehaviour:
         DebugActive: 0
         RepeatUntilStopped: 0
         CameraShakeProperties:
-          Duration: 0.1
-          Amplitude: 0.03
+          Duration: 0.2
+          Amplitude: 0.06
           Frequency: 5
           AmplitudeX: 0
           AmplitudeY: 0
