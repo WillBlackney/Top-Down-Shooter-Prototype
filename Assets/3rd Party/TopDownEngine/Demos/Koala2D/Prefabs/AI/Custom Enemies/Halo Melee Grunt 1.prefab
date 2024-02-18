@@ -11181,7 +11181,7 @@ MonoBehaviour:
         RemapRangeFalloff: {x: 0, y: 1}
         Owner: {fileID: 151257931485176813}
         DebugActive: 0
-        Sfx: {fileID: 8300000, guid: 741dd3f518b1c2d4d9f2250e297f4dc5, type: 3}
+        Sfx: {fileID: 8300000, guid: 113dd53056ced6c45b9e4dddc343f0fa, type: 3}
         RandomSfx: []
         TestPlayButton:
           ButtonText: Debug Play Sound
@@ -11191,10 +11191,10 @@ MonoBehaviour:
         PoolSize: 10
         UseLegacyEventsMode: 0
         StopSoundOnFeedbackStop: 1
-        MinVolume: 1
-        MaxVolume: 1
-        MinPitch: 1
-        MaxPitch: 1
+        MinVolume: 2
+        MaxVolume: 2
+        MinPitch: 0.65
+        MaxPitch: 0.85
         SfxAudioMixerGroup: {fileID: 0}
         Priority: 128
         PanStereo: 0
@@ -11249,7 +11249,7 @@ MonoBehaviour:
           ContributeToTotalDuration: 1
           InitialDelay: 0
           CooldownDuration: 0
-          InterruptsOnStop: 1
+          InterruptsOnStop: 0
           NumberOfRepeats: 8
           RepeatForever: 0
           DelayBetweenRepeats: 0.1
