@@ -497,8 +497,7 @@ namespace MoreMountains.Feedbacks
 			_options.SpatialBlendCurve = SpatialBlendCurve;
 			_options.UseReverbZoneMixCurve = UseReverbZoneMixCurve;
 			_options.ReverbZoneMixCurve = ReverbZoneMixCurve;
-			
-			_options.DoNotAutoRecycleIfNotDonePlaying = (_randomPlaybackDuration > 0) ? true : false;
+			_options.DoNotAutoRecycleIfNotDonePlaying = true;
 
 			_playedAudioSource = MMSoundManagerSoundPlayEvent.Trigger(sfx, _options);
 

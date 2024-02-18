@@ -159,7 +159,7 @@ namespace MoreMountains.Tools
 		public float TestPlaybackSpeedControl = 1f;
 		
 		/// whether or not this playlist manager is currently playing
-		public bool IsPlaying => (_currentlyPlayingAudioSource != null && _currentlyPlayingAudioSource.isPlaying);
+		public virtual bool IsPlaying => (_currentlyPlayingAudioSource != null && _currentlyPlayingAudioSource.isPlaying);
 		
 		/// a delegate used to trigger events along the lifecycle of the playlist manager
 		public delegate void PlaylistEvent();

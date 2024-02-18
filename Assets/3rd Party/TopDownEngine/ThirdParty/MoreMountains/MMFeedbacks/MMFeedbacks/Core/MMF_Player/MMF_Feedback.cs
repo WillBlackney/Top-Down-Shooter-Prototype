@@ -316,17 +316,25 @@ namespace MoreMountains.Feedbacks
 		/// A flag used to determine if a feedback has all it needs, or if it requires some extra setup.
 		/// This flag will be used to display a warning icon in the inspector if the feedback is not ready to be played.
 		/// </summary>
-		public bool RequiresSetup => _requiresSetup;
-		public string RequiredTarget => _requiredTarget;
+		public virtual bool RequiresSetup => _requiresSetup;
+		public virtual string RequiredTarget => _requiredTarget;
 
 		public virtual void CacheRequiresSetup()
 		{
+			#if UNITY_EDITOR
+			
 			_requiresSetup = EvaluateRequiresSetup();
 			if (_requiresSetup && HasAutomatedTargetAcquisition && (AutomatedTargetAcquisition != null) && (AutomatedTargetAcquisition.Mode != MMFeedbackTargetAcquisition.Modes.None))
 			{
 				_requiresSetup = false;
 			}
-			_requiredTarget = RequiredTargetText == "" ? "" : "[" + RequiredTargetText + "]";
+			if (RequiredTargetText != _requiredTargetTextCached)
+			{
+				_requiredTarget = RequiredTargetText == "" ? "" : "[" + RequiredTargetText + "]";
+				_requiredTargetTextCached = RequiredTargetText;
+			}
+			
+			#endif
 		}
 		/// if this is true, group inspectors will be displayed within this feedback
 		public virtual bool DrawGroupInspectors => true;
@@ -368,7 +376,17 @@ namespace MoreMountains.Feedbacks
 		public virtual float FeedbackDuration
 		{
 			get { return 0f; }
-			set { }
+			set {  }
+		}
+
+		/// <summary>
+		/// Use this method to change the duration of this feedback
+		/// </summary>
+		/// <param name="newDuration"></param>
+		public virtual void SetFeedbackDuration(float newDuration)
+		{
+			FeedbackDuration = newDuration;
+			Owner.ComputeCachedTotalDuration();
 		}
 
 		/// whether or not this feedback is playing right now
@@ -376,7 +394,7 @@ namespace MoreMountains.Feedbacks
 			((FeedbackStartedAt > 0f) && (Time.time - FeedbackStartedAt < FeedbackDuration));
 
 		/// a ChannelData object, ready to pass to an event
-		public MMChannelData ChannelData => _channelData.Set(ChannelMode, Channel, MMChannelDefinition);
+		public virtual MMChannelData ChannelData => _channelData.Set(ChannelMode, Channel, MMChannelDefinition);
 
 		protected float _lastPlayTimestamp = -1f;
 		protected int _playsLeft;
@@ -397,6 +415,7 @@ namespace MoreMountains.Feedbacks
 		protected MMChannelData _channelData;
 		protected float _totalDuration = 0f;
 		protected int _indexInOwnerFeedbackList = 0;
+		protected string _requiredTargetTextCached = ".";
 
 		#endregion Properties
 
@@ -557,7 +576,7 @@ namespace MoreMountains.Feedbacks
 		/// <returns></returns>
 		protected virtual IEnumerator PlayCoroutine(Vector3 position, float feedbacksIntensity = 1.0f)
 		{
-			yield return WaitFor(Timing.InitialDelay);
+			yield return WaitFor(ApplyTimeMultiplier(Timing.InitialDelay));
 			RegularPlay(position, feedbacksIntensity);
 			_lastPlayTimestamp = FeedbackTime;
 		}
@@ -630,11 +649,11 @@ namespace MoreMountains.Feedbacks
 					CustomPlayFeedback(position, feedbacksIntensity);
 					_lastPlayTimestamp = FeedbackTime;
 					yield return WaitFor(Timing.DelayBetweenRepeats + FeedbackDuration);
+					yield return null;
 				}
 				else
 				{
 					_sequenceCoroutine = Owner.StartCoroutine(SequenceCoroutine(position, feedbacksIntensity));
-
 					float delay = ApplyTimeMultiplier(Timing.DelayBetweenRepeats) + Timing.Sequence.Length;
 					yield return WaitFor(delay);
 				}
@@ -658,6 +677,7 @@ namespace MoreMountains.Feedbacks
 					_lastPlayTimestamp = FeedbackTime;
 					yield return WaitFor(Timing.DelayBetweenRepeats + FeedbackDuration);
 					yield return MMCoroutine.WaitForFrames(1);
+					yield return null;
 				}
 				else
 				{

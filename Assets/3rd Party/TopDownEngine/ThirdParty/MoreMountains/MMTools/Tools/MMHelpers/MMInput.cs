@@ -74,13 +74,13 @@ namespace MoreMountains.Tools
 			public ButtonUpMethodDelegate ButtonUpMethod;
 
 			/// returns the time (in unscaled seconds) since the last time the button was pressed down
-			public float TimeSinceLastButtonDown { get { return Time.unscaledTime - _lastButtonDownAt; } }
+			public virtual float TimeSinceLastButtonDown { get { return Time.unscaledTime - _lastButtonDownAt; } }
 			/// returns the time (in unscaled seconds) since the last time the button was released
-			public float TimeSinceLastButtonUp { get { return Time.unscaledTime - _lastButtonUpAt; } }
+			public virtual float TimeSinceLastButtonUp { get { return Time.unscaledTime - _lastButtonUpAt; } }
 			/// returns true if this button was pressed down within the time (in unscaled seconds) passed in parameters
-			public bool ButtonDownRecently(float time) { return (TimeSinceLastButtonDown <= time); }
+			public virtual bool ButtonDownRecently(float time) { return (TimeSinceLastButtonDown <= time); }
 			/// returns true if this button was released within the time (in unscaled seconds) passed in parameters
-			public bool ButtonUpRecently(float time) { return (TimeSinceLastButtonUp <= time); }
+			public virtual bool ButtonUpRecently(float time) { return (TimeSinceLastButtonUp <= time); }
 
 			protected float _lastButtonDownAt;
 			protected float _lastButtonUpAt;

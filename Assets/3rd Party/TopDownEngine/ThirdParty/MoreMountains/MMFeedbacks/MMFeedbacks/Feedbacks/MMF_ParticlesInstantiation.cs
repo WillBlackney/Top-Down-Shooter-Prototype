@@ -16,9 +16,9 @@ namespace MoreMountains.Feedbacks
 	{
 		/// a static bool used to disable all feedbacks of this type at once
 		public static bool FeedbackTypeAuthorized = true;
-		/// sets the inspector color for this feedback
-		#if UNITY_EDITOR
 		public override float FeedbackDuration { get { return ApplyTimeMultiplier(DeclaredDuration); } set { DeclaredDuration = value;  } }
+		#if UNITY_EDITOR
+		/// sets the inspector color for this feedback
 		public override Color FeedbackColor { get { return MMFeedbacksInspectorColors.ParticlesColor; } }
 		public override bool EvaluateRequiresSetup() { return (ParticlesPrefab == null); }
 		public override string RequiredTargetText { get { return ParticlesPrefab != null ? ParticlesPrefab.name : "";  } }

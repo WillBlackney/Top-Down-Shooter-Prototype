@@ -147,7 +147,7 @@ namespace MoreMountains.Feedbacks
 		/// if you don't stop your MMFeedbacks it'll remain true of course
 		public bool IsPlaying { get; protected set; }
 		/// if this MMFeedbacks is playing the time since it started playing
-		public float ElapsedTime => IsPlaying ? GetTime() - _lastStartAt : 0f;
+		public virtual float ElapsedTime => IsPlaying ? GetTime() - _lastStartAt : 0f;
 		/// the amount of times this MMFeedbacks has been played
 		public int TimesPlayed { get; protected set; }
 		/// whether or not the execution of this MMFeedbacks' sequence is being prevented and waiting for a Resume() call
@@ -174,13 +174,14 @@ namespace MoreMountains.Feedbacks
 						}
 					}
 				}
-				return InitialDelay + total;
+				return ComputedInitialDelay + total;
 			}
 		}
         
 		public virtual float GetTime() { return (PlayerTimescaleMode == TimescaleModes.Scaled) ? Time.time : Time.unscaledTime; }
 		public virtual float GetDeltaTime() { return (PlayerTimescaleMode == TimescaleModes.Scaled) ? Time.deltaTime : Time.unscaledDeltaTime; }
-        
+		public virtual float ComputedInitialDelay => ApplyTimeMultiplier(InitialDelay);
+		
 		protected float _startTime = 0f;
 		protected float _holdingMax = 0f;
 		protected float _lastStartAt = -float.MaxValue;
@@ -477,7 +478,7 @@ namespace MoreMountains.Feedbacks
 			_totalDuration = TotalDuration;
 			CheckForPauses();
             
-			if (InitialDelay > 0f)
+			if (ComputedInitialDelay > 0f)
 			{
 				StartCoroutine(HandleInitialDelayCo(position, feedbacksIntensity, forceRevert));
 			}
@@ -539,7 +540,7 @@ namespace MoreMountains.Feedbacks
 		protected virtual IEnumerator HandleInitialDelayCo(Vector3 position, float feedbacksIntensity, bool forceRevert = false)
 		{
 			IsPlaying = true;
-			yield return MMFeedbacksCoroutine.WaitFor(InitialDelay);
+			yield return MMFeedbacksCoroutine.WaitFor(ComputedInitialDelay);
 			PreparePlay(position, feedbacksIntensity, forceRevert);
 		}
         

@@ -58,7 +58,7 @@ namespace MoreMountains.Feedbacks
 		public virtual float GetDeltaTime() { return (TimescaleMode == TimescaleModes.Scaled) ? Time.deltaTime : Time.unscaledDeltaTime; }
 		public virtual MMChannelData ChannelData => new MMChannelData(ChannelMode, Channel, MMChannelDefinition);
         
-		public bool ListeningToEvents => _listeningToEvents;
+		public virtual bool ListeningToEvents => _listeningToEvents;
 
 		[HideInInspector]
 		internal bool _listeningToEvents = false;
@@ -201,6 +201,12 @@ namespace MoreMountains.Feedbacks
 				newValue += initialValue;
 			}
 			return newValue;
+		}
+
+		protected virtual Color ShakeGradient(Gradient gradient)
+		{
+			float remappedTime = MMFeedbacksHelpers.Remap(_journey, 0f, ShakeDuration, 0f, 1f);
+			return gradient.Evaluate(remappedTime);
 		}
 
 		/// <summary>

@@ -189,7 +189,7 @@ namespace MoreMountains.Tools
 		[MMCondition("ApplyBumpIntensityMultiplier", true)]
 		public AnimationCurve BumpIntensityMultiplier = new AnimationCurve(new Keyframe(-1, 1), new Keyframe(1, 1));
 		/// whether or not the bar is bumping right now
-		public bool Bumping { get; protected set; }
+		public virtual bool Bumping { get; protected set; }
 
 		[MMInspectorGroup("Events", true, 16)] 
         
@@ -264,8 +264,8 @@ namespace MoreMountains.Tools
 		[Tooltip("the current progress of the bar, ideally read only")]
 		[Range(0f,1f)]
 		public float BarProgress;
-		/// the current progress of the bar, ideally read only
-		[Tooltip("the current progress of the bar, ideally read only")]
+		/// the value towards which the bar is currently interpolating, ideally read only
+		[Tooltip("the value towards which the bar is currently interpolating, ideally read only")]
 		[Range(0f,1f)]
 		public float BarTarget;
 		/// the current progress of the delayed bar increasing
@@ -482,6 +482,7 @@ namespace MoreMountains.Tools
 
 		public virtual void Initialization()
 		{
+			BarTarget = -1f;
 			_isForegroundBarNotNull = ForegroundBar != null;
 			_isDelayedBarDecreasingNotNull = DelayedBarDecreasing != null;
 			_isDelayedBarIncreasingNotNull = DelayedBarIncreasing != null;

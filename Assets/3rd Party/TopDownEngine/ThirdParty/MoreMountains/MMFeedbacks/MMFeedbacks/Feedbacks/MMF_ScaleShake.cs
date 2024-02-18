@@ -17,7 +17,6 @@ namespace MoreMountains.Feedbacks
 		/// sets the inspector color for this feedback
 		#if UNITY_EDITOR
 		public override Color FeedbackColor { get { return MMFeedbacksInspectorColors.TransformColor; } }
-
 		public override string RequiredTargetText => RequiredChannelText;
 		#endif
 		/// returns the duration of the feedback

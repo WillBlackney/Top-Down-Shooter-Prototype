@@ -58,7 +58,7 @@ namespace MoreMountains.Tools
 		public bool SaveToFileButton;
 		[MMInspectorButton("LoadFromFileToMemory")]
 		public bool LoadFromFileButton;
-		[MMInspectorButton("DeletePersistencyFile")]
+		[MMInspectorButton("DeletePersistenceFile")]
 		public bool DeletePersistencyFileButton;
 
 		public DictionaryStringSceneData SceneDatas;
