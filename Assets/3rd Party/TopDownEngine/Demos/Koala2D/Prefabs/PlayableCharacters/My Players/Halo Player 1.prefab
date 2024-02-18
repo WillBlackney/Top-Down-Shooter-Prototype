@@ -16112,13 +16112,13 @@ MonoBehaviour:
     m_Bits: 8192
   Owner: {fileID: 0}
   TriggerFilter: 195
-  MinDamageCaused: 0
-  MaxDamageCaused: 0
+  MinDamageCaused: 10
+  MaxDamageCaused: 10
   TypedDamages: []
   DamageDirectionMode: 0
   DamageCausedKnockbackType: 1
   DamageCausedKnockbackDirection: 0
-  DamageCausedKnockbackForce: {x: 800, y: 0, z: 0}
+  DamageCausedKnockbackForce: {x: 600, y: 0, z: 0}
   InvincibilityDuration: 0.2
   RepeatDamageOverTime: 0
   AmountOfRepeats: 3
@@ -16159,10 +16159,10 @@ MonoBehaviour:
   Mode: 0
   ObstaclesLayerMask:
     serializedVersion: 2
-    m_Bits: 8448
+    m_Bits: 256
   SkinWidth: 0.1
-  RepositionRigidbodyIfHitTrigger: 1
-  RepositionRigidbodyIfHitNonTrigger: 1
+  RepositionRigidbodyIfHitTrigger: 0
+  RepositionRigidbodyIfHitNonTrigger: 0
 --- !u!58 &2814400558086149161
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -16241,7 +16241,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   StunMode: 1
-  StunDuration: 1.5
+  StunDuration: 2
   DisableZoneOnStun: 0
 --- !u!1 &2769150743623416789
 GameObject:

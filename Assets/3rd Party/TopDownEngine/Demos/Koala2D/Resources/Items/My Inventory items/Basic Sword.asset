@@ -89,7 +89,7 @@ MonoBehaviour:
   MovedSound: {fileID: 0}
   DroppedSound: {fileID: 0}
   UseDefaultSoundsIfNull: 1
-  EquippableWeapon: {fileID: 114594623923584052, guid: f79f2b6419dd1fd4e9c683db5f1a8943,
+  EquippableWeapon: {fileID: 114594623923584052, guid: 5790c7c236d916b448f07c161b8eeeb2,
     type: 3}
   AutoEquipMode: 2
   HandleWeaponID: 1

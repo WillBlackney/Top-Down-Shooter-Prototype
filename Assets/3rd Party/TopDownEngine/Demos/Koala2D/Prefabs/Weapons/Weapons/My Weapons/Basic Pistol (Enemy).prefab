@@ -4857,7 +4857,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6b6fc11d534b7e049a8267efd5722496, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9816,7 +9815,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6b6fc11d534b7e049a8267efd5722496, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14816,7 +14814,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 7d1caebaae67e0f468df88077a39e8e5, type: 2}
-  - {fileID: 2100000, guid: d4cd643376433c14a89d978020e035ec, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14922,8 +14919,8 @@ MonoBehaviour:
   WeaponCurrentlyActive: 1
   InputAuthorized: 0
   TriggerMode: 0
-  DelayBeforeUse: 0.5
-  DelayBeforeUseReleaseInterruption: 1
+  DelayBeforeUse: 0.75
+  DelayBeforeUseReleaseInterruption: 0
   TimeBetweenUses: 1.5
   TimeBetweenUsesReleaseInterruption: 0
   UseBurstMode: 0
@@ -14978,7 +14975,7 @@ MonoBehaviour:
   WeaponReloadNeededMMFeedback: {fileID: 0}
   WeaponReloadImpossibleMMFeedback: {fileID: 0}
   InitializeOnStart: 1
-  Interruptable: 0
+  Interruptable: 1
   Flipped: 0
   ProjectileSpawnOffset: {x: 1.91, y: 0.1, z: 0}
   DefaultProjectileDirection: {x: 0, y: 0, z: 1}
@@ -19918,7 +19915,6 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
