@@ -15,31 +15,56 @@ namespace GameEngine
         [SerializeField] private List<WaveData> waves;
         [SerializeField] private TextMeshProUGUI waveCountText;
         [SerializeField] private WaveData loopedWave;
+        [Space(20)]
 
+        [Header("Start Game Components")]
+        [SerializeField] private bool waitForStartGameButtonPress;
+        [SerializeField] private Button startGameButton;
+        [SerializeField] private GameObject targetDummy;
+
+        private bool allowSpawning = true;
         private int currentWaveNumber = 0;
         private float countdownToNextWave = 0;
+
+        private void Start()
+        {
+            if (waitForStartGameButtonPress)
+            {
+                allowSpawning = false;
+            }
+            startGameButton.onClick.AddListener(OnStartGameButtonPressed);
+        }
         private void Update()
         {
+            if (!allowSpawning) return;
+
             countdownToNextWave -= Time.deltaTime;
-            if(countdownToNextWave < 0)
+            if (countdownToNextWave < 0)
             {
                 currentWaveNumber += 1;
                 WaveData nextWave = loopedWave;
-                if (waves.Count > 0 )
+                if (waves.Count > 0)
                 {
                     nextWave = waves[0];
                 }
-                
+
                 countdownToNextWave = nextWave.waveDuration;
                 StartCoroutine(SpawnWave(nextWave));
             }
 
-            if(waveCountText != null )
+            if (waveCountText != null)
             {
                 string waveNumber = currentWaveNumber.ToString();
                 waveCountText.text = "Wave " + waveNumber + ", next wave in " + ((int)countdownToNextWave).ToString();
             }
-           
+
+        }
+
+        private void OnStartGameButtonPressed()
+        {
+            startGameButton.gameObject.SetActive(false);
+            targetDummy.gameObject.SetActive(false);
+            allowSpawning = true;
         }
         public IEnumerator SpawnWave(WaveData wave)
         {
