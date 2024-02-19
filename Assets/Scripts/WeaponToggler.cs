@@ -3,26 +3,58 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponToggler : MonoBehaviour
+namespace GameEngine
 {
-    [SerializeField] private GameObject rangedWeapon;
-    [SerializeField] private GameObject meleeWeapon;
-    private void Awake()
+    public class WeaponToggler : MonoBehaviour
     {
-        meleeWeapon.SetActive(false);
-        meleeWeapon.SetActive(true);
-    }
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Mouse0)) 
+        [SerializeField] private GameObject rangedWeaponAttachment;
+        [SerializeField] private GameObject meleeWeaponAttachment;
+
+        private SpriteRenderer rangedWeaponSR;
+        private SpriteRenderer meleeWeaponSR;
+
+        public SpriteRenderer RangedWeaponSR
         {
-            meleeWeapon.SetActive(false);
-            rangedWeapon.SetActive(true);
+            get
+            {
+                if (!rangedWeaponSR)
+                {
+                    rangedWeaponSR = rangedWeaponAttachment.GetComponentInChildren<SpriteRenderer>();
+                }
+                return rangedWeaponSR;
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.Mouse1))
+
+        public SpriteRenderer MeleeWeaponSR
         {
-            meleeWeapon.SetActive(true);
-            rangedWeapon.SetActive(false);
+            get
+            {
+                if (!meleeWeaponSR)
+                {
+                    meleeWeaponSR = meleeWeaponAttachment.GetComponentInChildren<SpriteRenderer>();
+                }
+                return meleeWeaponSR;
+            }
+        }
+
+        private void Start()
+        {
+            RangedWeaponSR.enabled = false;
+            MeleeWeaponSR.enabled = false;
+            meleeWeaponAttachment.transform.position = rangedWeaponAttachment.transform.position;
+        }
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                RangedWeaponSR.enabled = true;
+                MeleeWeaponSR.enabled = false;
+            }
+            else if (Input.GetKeyDown(KeyCode.Mouse1))
+            {
+                RangedWeaponSR.enabled = false;
+                MeleeWeaponSR.enabled = true;
+            }
         }
     }
 }

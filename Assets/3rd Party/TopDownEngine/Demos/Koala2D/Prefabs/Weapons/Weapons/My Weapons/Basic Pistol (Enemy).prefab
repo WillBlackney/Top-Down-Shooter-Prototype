@@ -15039,7 +15039,7 @@ MonoBehaviour:
   AimControl: 4
   AimControlActive: 1
   RotationMode: 0
-  WeaponRotationSpeed: 0
+  WeaponRotationSpeed: 1
   MinimumAngle: -180
   MaximumAngle: 180
   MinimumMagnitude: 0.2
@@ -20322,6 +20322,8 @@ MonoBehaviour:
         MoveToPosition: 0
         ActivateOnPlay: 0
         StopSystemOnInit: 1
+        StopSystemOnReset: 1
+        StopSystemOnStopFeedback: 1
         DeclaredDuration: 0
         ForceSimulationSpeed: 0
         ForcedSimulationSpeed: {x: 0.1, y: 1}
