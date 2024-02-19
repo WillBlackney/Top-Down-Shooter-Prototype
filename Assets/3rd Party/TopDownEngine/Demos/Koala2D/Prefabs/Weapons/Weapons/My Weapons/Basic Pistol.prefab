@@ -15041,8 +15041,8 @@ MonoBehaviour:
   DisplayReticle: 1
   MoveCameraTargetTowardsReticle: 1
   CameraTargetOffset: 0.3
-  CameraTargetMaxDistance: 2
-  CameraTargetSpeed: 5
+  CameraTargetMaxDistance: 10
+  CameraTargetSpeed: 20
 --- !u!114 &114904966379098586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20326,6 +20326,8 @@ MonoBehaviour:
         MoveToPosition: 0
         ActivateOnPlay: 0
         StopSystemOnInit: 1
+        StopSystemOnReset: 1
+        StopSystemOnStopFeedback: 1
         DeclaredDuration: 0
         ForceSimulationSpeed: 0
         ForcedSimulationSpeed: {x: 0.1, y: 1}

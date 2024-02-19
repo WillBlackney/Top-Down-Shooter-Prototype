@@ -266,10 +266,10 @@ MonoBehaviour:
   ReplaceMousePointer: 1
   MouseDeadZoneRadius: 0.5
   DisplayReticle: 1
-  MoveCameraTargetTowardsReticle: 0
+  MoveCameraTargetTowardsReticle: 1
   CameraTargetOffset: 0.3
   CameraTargetMaxDistance: 10
-  CameraTargetSpeed: 5
+  CameraTargetSpeed: 20
 --- !u!1 &4422267864509335895
 GameObject:
   m_ObjectHideFlags: 0
