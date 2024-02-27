@@ -15039,7 +15039,7 @@ MonoBehaviour:
   AimControl: 4
   AimControlActive: 1
   RotationMode: 0
-  WeaponRotationSpeed: 1
+  WeaponRotationSpeed: 5
   MinimumAngle: -180
   MaximumAngle: 180
   MinimumMagnitude: 0.2

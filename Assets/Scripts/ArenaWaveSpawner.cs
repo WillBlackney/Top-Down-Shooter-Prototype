@@ -11,6 +11,9 @@ namespace GameEngine
 {
     public class ArenaWaveSpawner : MonoBehaviour
     {
+        [SerializeField] private bool disableSystem = true;
+        [Space(10)]
+
         [SerializeField] private Transform[] spawnPositions;
         [SerializeField] private List<WaveData> waves;
         [SerializeField] private TextMeshProUGUI waveCountText;
@@ -28,15 +31,28 @@ namespace GameEngine
 
         private void Start()
         {
-            if (waitForStartGameButtonPress)
-            {
-                allowSpawning = false;
+            if (!disableSystem)
+            {                
+                waveCountText.gameObject.SetActive(true);
+                startGameButton.gameObject.SetActive(true);
+
+                if (waitForStartGameButtonPress)
+                {
+                    allowSpawning = false;
+                    startGameButton.onClick.AddListener(OnStartGameButtonPressed);
+                }
             }
-            startGameButton.onClick.AddListener(OnStartGameButtonPressed);
+            else
+            {
+                waveCountText.gameObject.SetActive(false);
+                startGameButton.gameObject.SetActive(false);
+            }
+            
+            
         }
         private void Update()
         {
-            if (!allowSpawning) return;
+            if (!allowSpawning || disableSystem) return;
 
             countdownToNextWave -= Time.deltaTime;
             if (countdownToNextWave < 0)

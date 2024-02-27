@@ -189,7 +189,7 @@ MonoBehaviour:
   MovementMultiplier: 0.5
   PreventAllMovementWhileInUse: 0
   PreventAllAimWhileInUse: 0
-  RecoilForce: -400
+  RecoilForce: 0
   Animators:
   - {fileID: 95683327680487172}
   PerformAnimatorSanityChecks: 0
